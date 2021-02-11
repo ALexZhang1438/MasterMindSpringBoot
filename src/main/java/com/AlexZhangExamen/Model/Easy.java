@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component;
 public class Easy extends Nivel{
 	public Easy(){
 		setIntentos(20);
-		setNumColores(3);
+		setNumColor(3);
 	}
 }

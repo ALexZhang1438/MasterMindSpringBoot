@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component;
 public class Normal extends Nivel{
 	public Normal() {
 		setIntentos(10);
-		setNumColores(3);
+		setNumColor(3);
 	}
 }

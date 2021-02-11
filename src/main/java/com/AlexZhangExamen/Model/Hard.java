@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component;
 public class Hard extends Nivel{
 	public Hard() {
 		setIntentos(5);
-		setNumColores(6);
+		setNumColor(6);
 	}
 }
