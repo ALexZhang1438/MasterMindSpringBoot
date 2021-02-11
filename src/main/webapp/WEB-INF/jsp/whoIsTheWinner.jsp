@@ -8,10 +8,14 @@
 <title>Pagina Registro de Puntuacion</title>
 </head>
 <body>
-	<form:form modelAttribute="theWinnerIS" action="win" method="get">
-		<h2>nombre</h2>
-		<form:input id="name" path="nombre" />
-		<form:input type="submit"/>
-	</form:form>
+	<form action="win" method="get">
+		<table>
+			<tr>
+				<td><label>Nombre</label></td>
+				<td><input type="text" name="championIsHere"/></td>
+			</tr>
+		</table>
+		<input type="submit">
+	</form>
 </body>
 </html>

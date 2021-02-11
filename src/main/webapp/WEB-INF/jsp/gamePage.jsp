@@ -16,7 +16,7 @@
 		<h3>Introduce los colores creas</h3>
 		<input type="text" name="userAnswer" />
 		<input type="submit"/>
-		<c:out value="${aciertos}" />
+		<c:out value="has acertado: ${aciertos}" />
 	</form>
 </body>
 </html>

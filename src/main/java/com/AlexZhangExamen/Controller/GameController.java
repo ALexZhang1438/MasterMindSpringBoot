@@ -63,24 +63,27 @@ public class GameController {
 		ModelAndView modelAndView = new ModelAndView();
 		inputList = userAnswer.split(",");
 		tries = nivel.getIntentos();
-		log.debug(tries);
+		log.debug("ante de entrar al for");
 		if (tries <= 0) {
 			modelAndView.setViewName("loserPage");
-		}else {
+		} else {
 			log.debug("esto es el inputList" + inputList);
 			for (int i = 0; i < nivel.getNumColor(); i++) {
-				if (inputList[i] == CorrectList.get(i)) {
-					aciertos++;
-					log.debug(aciertos);
+				for (int j = 0; j < nivel.getNumColor(); j++) {
+					if (inputList[i] == CorrectList.get(j)) {
+						aciertos++;
+						log.debug("acietos " + aciertos);
+					}
 				}
 			}
-			if(aciertos == nivel.getNumColor()) {
+			if (aciertos == nivel.getNumColor()) {
 				modelAndView.setViewName("whoIsTheWinner");
-			}else {
+			} else {
 				tries--;
 			}
 		}
 		log.debug(CorrectList);
+		modelAndView.setViewName("gamePage");
 		modelAndView.addObject("aciertos", aciertos);
 		return modelAndView;
 	}
