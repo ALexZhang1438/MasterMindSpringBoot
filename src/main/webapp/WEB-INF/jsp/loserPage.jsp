@@ -7,16 +7,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Pagina de juego</title>
+<title>Pagina de perdedores</title>
 </head>
 <body>
-	<h1>funciona</h1>
-	porfavor introduzca separados con comas
-	<form action="check" method="get">
-		<h3>Introduce los colores creas</h3>
-		<input type="text" name="userAnswer" />
-		<input type="submit"/>
-		<c:out value="${aciertos}" />
+	<h1>You are a Loser Bro</h1>
+	<form action="/" method="get">
+		<tr>
+			<input type="submit"/>
+		</tr>
 	</form>
 </body>
-</html>
+<

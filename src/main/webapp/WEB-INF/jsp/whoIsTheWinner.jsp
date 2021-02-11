@@ -9,7 +9,8 @@
 </head>
 <body>
 	<form:form modelAttribute="theWinnerIS" action="win" method="get">
-		Nombre:<form:input id="name" path="nombre" />
+		<h2>nombre</h2>
+		<form:input id="name" path="nombre" />
 		<form:input type="submit"/>
 	</form:form>
 </body>

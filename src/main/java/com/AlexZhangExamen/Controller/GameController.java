@@ -28,16 +28,23 @@ public class GameController {
 	private List<String> CorrectList = new ArrayList<>();
 	String colorRandom;
 	Integer tries;
+	int aciertos;
 	int tryUsed;
-	private List<String> inputList = new ArrayList<>();
+	private String[] inputList;
 	String puntuacion;
 	int wordIndex;
 	private List<String> Winner = new ArrayList<>();
+
+	@GetMapping("/")
+	public String index() {
+		return "index";
+	}
 
 	@GetMapping("/start")
 	private ModelAndView randomList() {
 		log.debug("Emezamos el juego");
 		ModelAndView modelAndView = new ModelAndView();
+		aciertos = 0;
 		for (int i = 0; i < nivel.getNumColor(); i++) {
 			wordIndex = new Random().nextInt(colorList.getColores().size());
 			colorRandom = colorList.getColores().get(wordIndex);
@@ -48,7 +55,35 @@ public class GameController {
 		return modelAndView;
 	}
 
-	@GetMapping("win")
+	@GetMapping("/check")
+	private ModelAndView checkList(@RequestParam String userAnswer) {
+		log.debug("checkaemos la respuesta");
+		ModelAndView modelAndView = new ModelAndView();
+		inputList = userAnswer.split(" ");
+		tries = nivel.getIntentos();
+		if (tries <= 0) {
+			modelAndView.setViewName("loserPage");
+		}else {
+			log.debug("esto es el inputList" + inputList);
+			for (int i = 0; i < nivel.getNumColor(); i++) {
+				if (inputList[i] == CorrectList.get(i)) {
+					aciertos++;
+					log.debug(aciertos);
+				}
+			}
+			if(aciertos == nivel.getNumColor()) {
+				modelAndView.setViewName("whoIsTheWinner");
+			}else {
+				tries--;
+				log.debug(tries);
+			}
+		}
+		log.debug(CorrectList);
+		modelAndView.addObject("aciertos", aciertos);
+		return modelAndView;
+	}
+
+	@GetMapping("/win")
 	public ModelAndView championInsert(@RequestParam String championIsHere) {
 		log.debug("WinnerInsert:" + this.Winner.toString());
 		ModelAndView modelAndView = new ModelAndView();
