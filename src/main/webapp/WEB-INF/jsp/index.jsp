@@ -10,14 +10,11 @@
 <title>Pagina de inicio</title>
 </head>
 <body>
-	<form action="aleatoria" method="get">
+	<h1>Empazamos con la purga?</h1>
+	<form action="" method="get">
 		<tr>
-			<input type="text" name="valorIntroducido" />
+			<input type="submit" values="Estoy Listo!"/>
 		</tr>
-		<tr>
-			<input type="submit"/>
-		</tr>
-		<c:out value="${puntuacion}" />
 	</form>
 </body>
 </html>
