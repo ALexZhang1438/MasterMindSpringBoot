@@ -9,6 +9,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -59,8 +61,9 @@ public class GameController {
 	private ModelAndView checkList(@RequestParam String userAnswer) {
 		log.debug("checkaemos la respuesta");
 		ModelAndView modelAndView = new ModelAndView();
-		inputList = userAnswer.split(" ");
+		inputList = userAnswer.split(",");
 		tries = nivel.getIntentos();
+		log.debug(tries);
 		if (tries <= 0) {
 			modelAndView.setViewName("loserPage");
 		}else {
@@ -75,7 +78,6 @@ public class GameController {
 				modelAndView.setViewName("whoIsTheWinner");
 			}else {
 				tries--;
-				log.debug(tries);
 			}
 		}
 		log.debug(CorrectList);
