@@ -7,14 +7,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Pagina de inicio</title>
+<title>Pagina de juego</title>
 </head>
 <body>
-	<h1>we started with the purge?</h1>
-	<form action="start" method="get">
-		<tr>
-			<input type="submit" values="Estoy Listo!"/>
-		</tr>
-	</form>
+	<h1>funciona</h1>
 </body>
 </html>

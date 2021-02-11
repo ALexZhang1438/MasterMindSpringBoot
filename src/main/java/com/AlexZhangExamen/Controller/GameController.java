@@ -2,6 +2,7 @@ package com.AlexZhangExamen.Controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -30,18 +31,21 @@ public class GameController {
 	int tryUsed;
 	private List<String> inputList = new ArrayList<>();
 	String puntuacion;
-	int word;
+	int wordIndex;
 	private List<String> Winner = new ArrayList<>();
 
 	@GetMapping("/start")
-	private ModelAndView randomList(@RequestParam List<String> inputList) {
-		log.debug("La respuesta a encontrar es:" + inputList);
+	private ModelAndView randomList() {
+		log.debug("Emezamos el juego");
+		ModelAndView modelAndView = new ModelAndView();
 		for (int i = 0; i < nivel.getNumColor(); i++) {
+			wordIndex = new Random().nextInt(colorList.getColores().size());
+			colorRandom = colorList.getColores().get(wordIndex);
 			CorrectList.add(colorRandom);
 		}
-		ModelAndView modelAndView = new ModelAndView();
+		log.debug(CorrectList);
+		modelAndView.setViewName("gamePage");
 		return modelAndView;
-
 	}
 
 	@GetMapping("win")
