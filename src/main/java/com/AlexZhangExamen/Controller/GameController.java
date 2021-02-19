@@ -50,9 +50,11 @@ public class GameController {
 		for (int i = 0; i < nivel.getNumColor(); i++) {
 			wordIndex = new Random().nextInt(colorList.getColores().size());
 			colorRandom = colorList.getColores().get(wordIndex);
+			tries = nivel.getIntentos();
 			CorrectList.add(colorRandom);
 		}
 		log.debug(CorrectList);
+		log.debug(tries);
 		modelAndView.setViewName("gamePage");
 		return modelAndView;
 	}
@@ -62,7 +64,6 @@ public class GameController {
 		log.debug("checkaemos la respuesta");
 		ModelAndView modelAndView = new ModelAndView();
 		inputList = userAnswer.split(",");
-		tries = nivel.getIntentos();
 		log.debug("ante de entrar al for");
 		if (tries <= 0) {
 			modelAndView.setViewName("loserPage");
